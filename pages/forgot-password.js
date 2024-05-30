@@ -1,0 +1,55 @@
+import AuthLayout from "@/components/layout/AuthLayout";
+import Link from "next/link";
+import React from "react";
+
+const ForgotPassword = () => {
+  return (
+    <div className="overflow-hidden">
+      <AuthLayout>
+        <div className="mx-auto grid w-[350px] gap-6">
+          <div className="grid gap-2 text-center">
+            <h1 className="text-3xl font-bold">Forgot Password</h1>
+            <p className="text-balance text-muted-foreground">
+              Enter your email below to get a reset link
+            </p>
+          </div>
+          <div className="grid gap-4">
+            <div className="grid gap-2">
+              <label htmlFor="email">Email</label>
+              <input
+                id="email"
+                type="email"
+                placeholder="m@example.com"
+                required
+                className="input"
+              />
+            </div>
+            <div className="grid gap-2">
+              <div className="flex items-center">
+                <label htmlFor="password">Password</label>
+                <Link
+                  href="/forgot-password"
+                  className="ml-auto inline-block text-sm underline"
+                >
+                  Forgot your password?
+                </Link>
+              </div>
+              <input id="password" type="password" required className="input" />
+            </div>
+            <button type="submit" className="w-full btn">
+              Login
+            </button>
+          </div>
+          <div className="mt-2 text-center text-sm">
+            Don&apos;t have an account?{" "}
+            <Link href="/register" className="underline">
+              Sign up
+            </Link>
+          </div>
+        </div>
+      </AuthLayout>
+    </div>
+  );
+};
+
+export default ForgotPassword;

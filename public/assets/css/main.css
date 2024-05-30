@@ -26,7 +26,7 @@
     14. CTA
     15. Fact
     16. Events
-    17. Quick Action
+    17. Quick Action@tailwind base;
     18. FAQ
     19. Shop
     20. Blog
@@ -138,6 +138,14 @@ input:focus,
 textarea,
 textarea:focus {
     outline: 0;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
 h1,
@@ -281,6 +289,13 @@ textarea {
     clear: both;
 }
 
+.full-flex-center {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 /*=============================
     - Bootstrap Custom
 =============================*/
@@ -390,6 +405,10 @@ textarea {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+}
+
+.auth-bg{
+    background: var(--tg-theme-primary) none repeat scroll 0 0;
 }
 
 .btn {
@@ -2529,7 +2548,7 @@ textarea {
 
 .banner__images .shape:nth-child(3) {
     max-width: 87px;
-    left: -87px;
+    right: -87px;
     bottom: 33%;
 }
 
@@ -2649,9 +2668,9 @@ textarea {
 .banner__fact-item:last-child {
     min-width: 171px;
     top: auto;
-    bottom: 108px;
+    bottom: -100px;
     left: auto;
-    right: -145px;
+    right: 50px;
     -webkit-transform: translateY(0);
     -moz-transform: translateY(0);
     -ms-transform: translateY(0);
