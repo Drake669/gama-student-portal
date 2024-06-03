@@ -1,3 +1,4 @@
+import RegisterForm from "@/components/auth/RegisterForm";
 import AuthLayout from "@/components/layout/AuthLayout";
 import PageHead from "@/components/layout/PageHead";
 import Link from "next/link";
@@ -15,53 +16,7 @@ const Register = () => {
               Enter your details below to create a new account
             </p>
           </div>
-          <div className="grid gap-4">
-            <div className="grid gap-2">
-              <label htmlFor="firstName">First Name</label>
-              <input
-                id="firstname"
-                type="text"
-                placeholder="John"
-                required
-                className="input"
-              />
-            </div>
-            <div className="grid gap-2">
-              <label htmlFor="lastName">Last Name</label>
-              <input
-                id="lastName"
-                type="lastName"
-                placeholder="Doe"
-                required
-                className="input"
-              />
-            </div>
-            <div className="grid gap-2">
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                placeholder="m@example.com"
-                required
-                className="input"
-              />
-            </div>
-            <div className="grid gap-2">
-              <div className="flex items-center">
-                <label htmlFor="password">Password</label>
-              </div>
-              <input
-                id="password"
-                type="password"
-                autoComplete="new-password"
-                required
-                className="input"
-              />
-            </div>
-            <button type="submit" className="w-full btn">
-              Create new account
-            </button>
-          </div>
+          <RegisterForm />
           <div className="mt-2 text-center text-sm">
             Already have an account?{" "}
             <Link href="/login" className="underline">

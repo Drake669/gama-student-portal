@@ -1,3 +1,4 @@
+import ForgotPasswordForm from "@/components/auth/ForgotPasswordForm";
 import AuthLayout from "@/components/layout/AuthLayout";
 import PageHead from "@/components/layout/PageHead";
 import Link from "next/link";
@@ -15,21 +16,7 @@ const ForgotPassword = () => {
               Enter your email below to get a reset link
             </p>
           </div>
-          <div className="grid gap-4">
-            <div className="grid gap-2">
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                placeholder="m@example.com"
-                required
-                className="input"
-              />
-            </div>
-            <button type="submit" className="w-full btn">
-              Send Link
-            </button>
-          </div>
+          <ForgotPasswordForm />
           <div className="mt-2 text-center text-sm">
             Already have an account?{" "}
             <Link href="/login" className="underline">

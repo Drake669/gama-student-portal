@@ -4,7 +4,7 @@ const getBaseUrl = () => {
   if (typeof window !== "undefined" && window._env_ && window._env_.API_URL) {
     return window._env_.API_URL;
   }
-  return "http://localhost:4000"; // Fallback URL if `window` is not defined
+  return "https:web.builtaccounting.com/"; // Fallback URL if `window` is not defined
 };
 
 const prepareHeaders = (headers, api) => {

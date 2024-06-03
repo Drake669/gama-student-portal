@@ -13,5 +13,6 @@ export const store = configureStore({
     bookFilter: bookFilterSlice,
     [baseSlice.reducerPath]: baseSlice.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(baseSlice.middleware),
 });
