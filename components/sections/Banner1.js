@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
@@ -36,19 +37,20 @@ export default function Banner1() {
                 >
                   Learn{" "}
                   <span className="position-relative">
-                    <span
+                    <img
+                      src="/assets/img/icons/title_shape.svg"
                       className="svg-icon"
-                      id="svg-2"
-                      data-svg-icon="assets/img/icons/title_shape.svg"
                     />
                     Skills
                   </span>{" "}
-                  From Our Top Instructors
+                  From Our Top Courses
                 </h3>
                 <p data-aos="fade-right" data-aos-delay={600}>
-                  Borem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                  elit tellus, luctus nec ullamcorper mattisBorem ipsum dolor
-                  sit amet consectetur adipiscing area we followelit.
+                  Our carefully curated courses are designed to help you master
+                  new skills and advance your career. Whether you are looking to
+                  improve your professional abilities or explore new areas of
+                  interest, our expert-led courses provide the knowledge and
+                  tools you need to succeed.
                 </p>
                 <div
                   className="banner__btn-wrap"
@@ -58,11 +60,7 @@ export default function Banner1() {
                   <div className="tg-button-wrap">
                     <Link href="/courses" className="btn tg-svg">
                       <span className="text">Explore Courses</span>
-                      <span
-                        className="svg-icon"
-                        id="svg-1"
-                        data-svg-icon="assets/img/icons/btn-arrow.svg"
-                      />
+                      <img src="/assets/img/icons/btn-arrow.svg" />
                     </Link>
                   </div>
                   <div className="banner__phone">
@@ -70,7 +68,7 @@ export default function Banner1() {
                     <div className="number-info">
                       <span>Have any Question?</span>
                       <h6 className="number">
-                        <Link href="tel:993-00-67777">993-00-67777</Link>
+                        <Link href="tel:1-758-720-1919">1-758-720-1919</Link>
                       </h6>
                     </div>
                   </div>

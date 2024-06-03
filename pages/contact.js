@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Contact() {
   return (
     <>
-      <Layout headerStyle={3} footerStyle={1} breadcrumbTitle="Contact With Us">
+      <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="Contact Us">
         <div>
           <section className="contact-area section-py-120">
             <div className="container">
@@ -13,8 +13,8 @@ export default function Contact() {
                   <div className="contact-info-wrap">
                     <h2 className="title">Keep In Touch With Us</h2>
                     <p>
-                      Neque convallis cras semper auctor. Libero id faucibus
-                      getnvallis.id faucibus nisl tincidunt egetnvallis.
+                      Have an idea? Let’s execute it. Please fill the form and
+                      one of our experts will get in touch with you immediately.
                     </p>
                     <ul className="list-wrap">
                       <li>
@@ -22,9 +22,7 @@ export default function Contact() {
                           <i className="flaticon-pin-1" />
                         </div>
                         <div className="content">
-                          <p>
-                            68 Street Holakt Street world <br /> 10002 New York
-                          </p>
+                          <p>Cnr Maurice Mason Ave L’Anse Rd</p>
                         </div>
                       </li>
                       <li>
@@ -32,8 +30,7 @@ export default function Contact() {
                           <i className="flaticon-phone-call" />
                         </div>
                         <div className="content">
-                          <Link href="tel:0123456789">+123 555 69090</Link>
-                          <Link href="tel:0123456789">+123 555 69090</Link>
+                          <Link href="tel:0123456789">+1-758-720-1919</Link>
                         </div>
                       </li>
                       <li>
@@ -41,11 +38,8 @@ export default function Contact() {
                           <i className="flaticon-email" />
                         </div>
                         <div className="content">
-                          <Link href="mailto:info@gmail.com">
-                            info@gmail.com
-                          </Link>
-                          <Link href="mailto:info@gmail.com">
-                            info@gmail.com
+                          <Link href="mailto:info@gamalearninginstitute.com">
+                            info@gamalearninginstitute.com
                           </Link>
                         </div>
                       </li>
@@ -121,7 +115,7 @@ export default function Contact() {
           </section>
           {/* contact-area-end */}
           {/* contact-map */}
-          <div className="contact-map">
+          {/* <div className="contact-map">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48409.69813174607!2d-74.05163325136718!3d40.68264649999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25bae694479a3%3A0xb9949385da52e69e!2sBarclays%20Center!5e0!3m2!1sen!2sbd!4v1684309529719!5m2!1sen!2sbd"
               style={{ border: 0 }}
@@ -129,7 +123,7 @@ export default function Contact() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-          </div>
+          </div> */}
         </div>
       </Layout>
     </>

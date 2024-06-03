@@ -10,7 +10,7 @@ export default function Courses() {
     }
     return (
         <>
-            <Layout headerStyle={3} footerStyle={1} breadcrumbTitle="Our Courses">
+            <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="Our Courses">
                 <section className="all-courses-area section-py-120">
                     <div className="container">
                         <div className="row">

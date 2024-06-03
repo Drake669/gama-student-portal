@@ -22,11 +22,11 @@ import "/public/assets/css/tg-cursor.css";
 import { Toaster } from "react-hot-toast";
 
 function MyApp({ Component, pageProps }) {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
+    // setTimeout(() => {
+    //   setLoading(false);
+    // }, 1000);
     AOS.init({
       duration: 1000,
       mirror: true,
@@ -37,14 +37,14 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Cursor />
-      {!loading ? (
-        <Provider store={store}>
-          <Toaster />
-          <Component {...pageProps} />
-        </Provider>
-      ) : (
+      {/* {!loading ? ( */}
+      <Provider store={store}>
+        <Toaster />
+        <Component {...pageProps} />
+      </Provider>
+      {/* ) : (
         <Preloader />
-      )}
+      )} */}
     </>
   );
 }
