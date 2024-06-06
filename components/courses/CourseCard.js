@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link"
 const CourseCard = ({ item }) => {
     return (
@@ -8,7 +9,7 @@ const CourseCard = ({ item }) => {
                         <img src={`/assets/img/courses/${item.logo}`} alt="img" />
                     </Link>
                     <div className="author">
-                    <Link href={`/course/${item.id}`}><img src="/assets/img/courses/course_author001.png" alt="img" /></Link>
+                    <Link href={`/course/${item.id}`}><img src="/assets/img/favicon.png" alt="img" /></Link>
                     </div>
                 </div>
                 <div className="courses__item-two-content">

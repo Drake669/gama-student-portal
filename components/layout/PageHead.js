@@ -1,15 +1,17 @@
-import Head from 'next/head'
+import Head from "next/head";
 
 const PageHead = ({ headTitle }) => {
-    return (
-        <>
-            <Head>
-                <title>
-                    {headTitle ? headTitle : "Eduvalt - Online Courses & Education Nextjs Template"}
-                </title>
-            </Head>
-        </>
-    )
-}
+  return (
+    <>
+      <Head>
+        <title>
+          {headTitle
+            ? headTitle
+            : "Gama Learning Institute - Online Courses & Education Nextjs Template"}
+        </title>
+      </Head>
+    </>
+  );
+};
 
-export default PageHead
+export default PageHead;
