@@ -16,18 +16,15 @@ const LoginForm = () => {
     try {
       const req = { email: email.current, password: password.current };
       const res = await login(req).unwrap();
-      console.log(res);
 
-      
-    signIn("credentials", {
-      accessToken: res.tokenData.access.token,
-      accessTokenExpires: res.tokenData.access.expires,
-      refreshToken: res.tokenData.refresh.token,
-      refreshTokenExpires: res.tokenData.refresh.expires,
-      user: res.user,
-    });
-      
-
+      signIn("credentials", {
+        accessToken: res.tokenData.access.token,
+        accessTokenExpires: res.tokenData.access.expires,
+        refreshToken: res.tokenData.refresh.token,
+        refreshTokenExpires: res.tokenData.refresh.expires,
+        user: res.user,
+        callbackUrl: "/app",
+      });
     } catch (error) {
       alert(error, "error");
     }

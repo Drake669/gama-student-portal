@@ -5,14 +5,9 @@ const authOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
-
       credentials: {},
-
       async authorize(_, req) {
-        const {
-          accessToken,
-          //  accessTokenExpires, refreshToken, refreshTokenExpires, user
-        } = req.body;
+        const { accessToken } = req.body;
 
         try {
           const res = await fetch(
@@ -28,14 +23,10 @@ const authOptions = {
 
           const userData = await res.json();
 
-          if (data) {
-            return {
-              ...req.body,
-              user: userData,
-            };
-          }
-
-          return null;
+          return {
+            ...req.body,
+            user: userData,
+          };
         } catch (error) {
           return null;
         }
@@ -44,20 +35,42 @@ const authOptions = {
   ],
 
   callbacks: {
+    async signIn({ user }) {
+      if (!user) {
+        return false;
+      }
 
-    async signIn(payload) {
+      if (user && user.accessToken) {
+        return true;
+      }
 
-      return true
+      return false;
     },
 
-    async session(payload) {
+    async session({ session, token }) {
+      if (token?.user) {
+        session.user = token?.user;
+      }
 
-      return payload;
+      const data = {
+        ...session,
+        token: session.user.accessToken || "",
+        tokenExpires: session.user.accessTokenExpires || "",
+      };
+
+      return data;
     },
 
-    async jwt(payload) {
-      console.log("DDDDjwt:::", payload);
-      return payload;
+    async jwt({ user, token, trigger, session }) {
+      if (user) {
+        token.user = user;
+      }
+
+      // if (token.user && trigger === "update") {
+      //   token.
+      // }
+
+      return token;
     },
   },
 
@@ -65,8 +78,10 @@ const authOptions = {
 
   session: {
     strategy: "jwt",
-    maxAge: 3600, // update the age - 1 hour
+    maxAge: 30 * 24 * 60 * 60, // 30 days
   },
+
+  debug: true,
 
   pages: {
     signIn: "/login",

@@ -3,9 +3,40 @@ import Link from "next/link";
 import MobileMenu from "../MobileMenu";
 import { Menu } from "@headlessui/react";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function Header1({ scroll, handleMobileMenu }) {
   const pathname = usePathname();
+
+  const { data: session } = useSession();
+
+  const renderMenu = () => {
+    if (session) {
+      return (
+        <div className="header-btn login-btn">
+          <Link href="/profile" className="btn">
+            {session.user.user.firstName}
+          </Link>
+        </div>
+      );
+    } else {
+      return (
+        <>
+          <li className="header-btn login-btn">
+            <Link href="/login" className="btn">
+              Log in
+            </Link>
+          </li>
+          <li className="header-btn free-btn">
+            <Link href="/register" className="btn">
+              Signup
+            </Link>
+          </li>
+        </>
+      );
+    }
+  };
+
   return (
     <>
       <div id="header-fixed-height" />
@@ -230,16 +261,7 @@ export default function Header1({ scroll, handleMobileMenu }) {
                             <span className="mini-cart-count">0</span>
                           </Link>
                         </li>
-                        <li className="header-btn login-btn">
-                          <Link href="/login" className="btn">
-                            Log in
-                          </Link>
-                        </li>
-                        <li className="header-btn free-btn">
-                          <Link href="/register" className="btn">
-                            Signup
-                          </Link>
-                        </li>
+                        {renderMenu()}
                       </ul>
                     </div>
                   </nav>

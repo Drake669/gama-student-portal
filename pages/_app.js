@@ -20,6 +20,7 @@ import "/public/assets/css/select2.min.css";
 import "/public/assets/css/spacing.css";
 import "/public/assets/css/tg-cursor.css";
 import { Toaster } from "react-hot-toast";
+import { SessionProvider } from "next-auth/react";
 
 function MyApp({ Component, pageProps }) {
   // const [loading, setLoading] = useState(true);
@@ -40,7 +41,9 @@ function MyApp({ Component, pageProps }) {
       {/* {!loading ? ( */}
       <Provider store={store}>
         <Toaster />
-        <Component {...pageProps} />
+        <SessionProvider session={pageProps.session}>
+          <Component {...pageProps} />
+        </SessionProvider>
       </Provider>
       {/* ) : (
         <Preloader />
