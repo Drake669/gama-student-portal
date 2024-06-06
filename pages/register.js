@@ -7,7 +7,7 @@ import React from "react";
 const Register = () => {
   return (
     <div className="overflow-hidden">
-      <PageHead headTitle={"Eduvalut - Signup"} />
+      <PageHead headTitle={"Gama Learning Institute - Signup"} />
       <AuthLayout>
         <div className="mx-auto grid w-[350px] sm:w-[500px] gap-6 mt-[30px] md:mt-0">
           <div className="grid gap-2 text-center">

@@ -7,7 +7,7 @@ import React from "react";
 const ForgotPassword = () => {
   return (
     <div className="overflow-hidden">
-      <PageHead headTitle={"Eduvalut - Forgot Password"} />
+      <PageHead headTitle={"Gama Learning Institute - Forgot Password"} />
       <AuthLayout>
         <div className="mx-auto grid w-[350px] sm:w-[500px] gap-6 mt-[30px] md:mt-0">
           <div className="grid gap-2 text-center">

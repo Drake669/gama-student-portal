@@ -9,6 +9,7 @@ const RegisterForm = () => {
   const lastName = useRef("");
   const email = useRef("");
   const password = useRef("");
+  const phoneNumber = useRef("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,10 +19,13 @@ const RegisterForm = () => {
         lastName: lastName.current,
         email: email.current,
         password: password.current,
+        phoneNumber: phoneNumber.current,
+        role: "student",
       };
       const res = await register(req).unwrap();
+      console.log(res);
     } catch (error) {
-      alert("Something went wrong", "error");
+      alert(error, "error");
     }
   };
 
@@ -79,6 +83,19 @@ const RegisterForm = () => {
             className="input"
             onChange={(e) => {
               password.current = e.target.value;
+            }}
+          />
+        </div>
+        <div className="grid gap-2">
+          <label htmlFor="email">Phone Number</label>
+          <input
+            name="phoneNumber"
+            type="text"
+            placeholder="+233554221525"
+            required
+            className="input"
+            onChange={(e) => {
+              phoneNumber.current = e.target.value;
             }}
           />
         </div>

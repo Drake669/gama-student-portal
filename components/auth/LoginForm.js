@@ -15,8 +15,9 @@ const LoginForm = () => {
     try {
       const req = { email: email.current, password: password.current };
       const res = await login(req).unwrap();
+      console.log(res);
     } catch (error) {
-      alert("Something went wrong", "error");
+      alert(error, "error");
     }
   };
 

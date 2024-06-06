@@ -13,8 +13,9 @@ const ForgotPasswordForm = () => {
     try {
       const req = { email: email.current };
       const res = await forgotPassword(req).unwrap();
+      alert("Check your mail for a password reset link", "success");
     } catch (error) {
-      alert("Something went wrong", "error");
+      alert(error, "error");
     }
   };
   return (
