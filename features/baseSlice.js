@@ -29,13 +29,13 @@ const baseQuery = fetchBaseQuery({
 
 const baseQueryWithReauth = async (args, api, extraOptions) => {
   const result = await baseQuery(args, api, extraOptions);
-  if (result.error && result.error.status === 401 && api.endpoint !== "login") {
-    // log user out
-    if (typeof window !== "undefined") {
-      localStorage.clear();
-      window.location.assign("/login");
-    }
-  }
+  // if (result.error && result.error.status === 401 && api.endpoint !== "login") {
+  //   // log user out
+  //   if (typeof window !== "undefined") {
+  //     localStorage.clear();
+  //     window.location.assign("/login");
+  //   }
+  // }
   return result;
 };
 // initialize an empty api service that we'll inject endpoints into later as needed

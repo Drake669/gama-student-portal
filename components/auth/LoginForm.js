@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import SubmitButton from "../SubmitButton";
 import { alert } from "../Alert";
+import { signIn } from "next-auth/react";
 
 const LoginForm = () => {
   const [login, { isLoading }] = useLoginMutation();
@@ -16,6 +17,17 @@ const LoginForm = () => {
       const req = { email: email.current, password: password.current };
       const res = await login(req).unwrap();
       console.log(res);
+
+      
+    signIn("credentials", {
+      accessToken: res.tokenData.access.token,
+      accessTokenExpires: res.tokenData.access.expires,
+      refreshToken: res.tokenData.refresh.token,
+      refreshTokenExpires: res.tokenData.refresh.expires,
+      user: res.user,
+    });
+      
+
     } catch (error) {
       alert(error, "error");
     }
