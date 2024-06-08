@@ -34,7 +34,7 @@ const ForgotPasswordForm = () => {
             }}
           />
         </div>
-        <SubmitButton isLoading={isLoading} content={"Send Link"} />
+        <SubmitButton isLoading={isLoading} content={"Send Link"} full/>
       </div>
     </form>
   );

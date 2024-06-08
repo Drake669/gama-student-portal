@@ -33,7 +33,7 @@ export default function About1() {
                       fill="currentcolor"
                     />
                   </svg>
-                  <h4 className="year">12 +</h4>
+                  <h4 className="year">40 +</h4>
                   <p>Years of Experiences</p>
                 </div>
                 <img

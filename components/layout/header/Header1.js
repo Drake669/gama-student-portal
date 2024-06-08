@@ -4,21 +4,31 @@ import MobileMenu from "../MobileMenu";
 import { Menu } from "@headlessui/react";
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { Loader2 } from "lucide-react";
 
 export default function Header1({ scroll, handleMobileMenu }) {
   const pathname = usePathname();
 
-  const { data: session } = useSession();
-
+  const { data: session, status } = useSession();
   const renderMenu = () => {
     if (session) {
       return (
-        <div className="header-btn login-btn">
-          <Link href="/profile" className="btn">
-            {session.user.user.firstName}
-          </Link>
-        </div>
+        <>
+          <li className="mini-cart-icon">
+            <Link href="/shop" className="cart-count">
+              <img src="/assets/img/icons/cart.svg" alt="cart" />
+              <span className="mini-cart-count">0</span>
+            </Link>
+          </li>
+          <div className="header-btn login-btn">
+            <Link href="/profile?t=general" className="btn">
+              {session.user.user.firstName}
+            </Link>
+          </div>
+        </>
       );
+    } else if (status === "loading") {
+      return <Loader2 className=" animate-spin" />;
     } else {
       return (
         <>
@@ -254,15 +264,7 @@ export default function Header1({ scroll, handleMobileMenu }) {
                       </form>
                     </div>
                     <div className="tgmenu__action">
-                      <ul className="list-wrap">
-                        <li className="mini-cart-icon">
-                          <Link href="/shop" className="cart-count">
-                            <img src="/assets/img/icons/cart.svg" alt="cart" />
-                            <span className="mini-cart-count">0</span>
-                          </Link>
-                        </li>
-                        {renderMenu()}
-                      </ul>
+                      <ul className="list-wrap">{renderMenu()}</ul>
                     </div>
                   </nav>
                 </div>

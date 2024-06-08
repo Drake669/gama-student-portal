@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useRegisterMutation } from "@/features/hooks/auth/useSignup";
 import SubmitButton from "../SubmitButton";
 import { alert } from "../Alert";
+import { signIn } from "next-auth/react";
 
 const RegisterForm = () => {
   const [register, { isLoading }] = useRegisterMutation();
@@ -23,7 +24,15 @@ const RegisterForm = () => {
         role: "student",
       };
       const res = await register(req).unwrap();
-      console.log(res);
+      await signIn("credentials", {
+        accessToken: res.tokenData.access.token,
+        accessTokenExpires: res.tokenData.access.expires,
+        refreshToken: res.tokenData.refresh.token,
+        refreshTokenExpires: res.tokenData.refresh.expires,
+        user: res.user,
+        callbackUrl: "/",
+      });
+      alert("Account creation successful", "success");
     } catch (error) {
       alert(error, "error");
     }
@@ -99,7 +108,11 @@ const RegisterForm = () => {
             }}
           />
         </div>
-        <SubmitButton isLoading={isLoading} content={"Create new account"} />
+        <SubmitButton
+          isLoading={isLoading}
+          content={"Create new account"}
+          full
+        />
       </div>
     </form>
   );

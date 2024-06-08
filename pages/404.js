@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 export default function Custom404() {
   return (
     <>
-      <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="Error Page">
+      <Layout headerStyle={1}>
         <section className="error-area">
           <div className="container">
             <div className="row justify-content-center">
@@ -14,16 +16,15 @@ export default function Custom404() {
                   </div>
                   <div className="error-content">
                     <h2 className="title">
-                      ERROR PAGE!{" "}
                       <span>Sorry! This Page is Not Available!</span>
                     </h2>
                     <div className="tg-button-wrap">
                       <Link href="/" className="btn tg-svg">
-                        <span className="text">Go To Home APge</span>{" "}
-                        <span
+                        <span className="text">Go To Home APge</span>
+                        <img
                           className="svg-icon"
                           id="error-btn"
-                          data-svg-icon="assets/img/icons/btn-arrow.svg"
+                          src="assets/img/icons/btn-arrow.svg"
                         />
                       </Link>
                     </div>
