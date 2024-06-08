@@ -19,6 +19,7 @@ import { alert } from "@/components/Alert";
 import SubmitButton from "@/components/SubmitButton";
 import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useChangePasswordMutation } from "@/features/hooks/auth/useChangePassword";
 
 function Profile() {
   const { data: session, update } = useSession();
@@ -26,6 +27,8 @@ function Profile() {
   const router = useRouter();
   const { t } = router.query;
   const [updateProfile, { isLoading }] = useUpdateProfileMutation();
+  const [changePassword, { isLoading: passwordLoading }] =
+    useChangePasswordMutation();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -58,14 +61,25 @@ function Profile() {
         phoneNumber,
       };
       const res = await updateProfile(req).unwrap();
-      console.log(res, "RESSSS");
       alert("Profile update successful", "success");
       if (session) {
         session.user.user = res;
-        console.log(session);
-        const resd = await update(session);
-        console.log(resd);
+        await update(session);
       }
+    } catch (error) {
+      alert(error, "error");
+    }
+  };
+
+  const handlePasswordChange = async (e) => {
+    e.preventDefault();
+    try {
+      const req = {
+        oldPassword,
+        newPassword,
+      };
+      await changePassword(req).unwrap();
+      alert("Password change successful", "success");
     } catch (error) {
       alert(error, "error");
     }
@@ -151,8 +165,14 @@ function Profile() {
                     </div>
                   </CardContent>
                   <CardFooter className="border-t px-6 py-4">
-                    <button className="btn" onClick={handleSubmit}>
+                    <button
+                      className={cn("btn flex items-center justify-center")}
+                      onClick={handlePasswordChange}
+                    >
                       Change Password
+                      {passwordLoading && (
+                        <Loader2 className="w-6 h-6 animate-spin ml-2" />
+                      )}
                     </button>
                   </CardFooter>
                 </Card>
@@ -221,7 +241,7 @@ function Profile() {
                     >
                       Save Changes
                       {isLoading && (
-                        <Loader2 className="w-6 h-6 ml-4 animate-spin" />
+                        <Loader2 className="w-6 h-6 ml-2 animate-spin" />
                       )}
                     </button>
                   </CardFooter>
