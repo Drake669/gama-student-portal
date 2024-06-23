@@ -3,7 +3,7 @@ import { Head, Html, Main, NextScript } from "next/document";
 export default function Document() {
   return (
     <Html lang="en">
-      <Head title="Hello" />
+      <Head title="Gama Learning Institute" />
       <link rel="shortcut icon" href="/assets/img/favicon.png" />
       <link rel="preconnect" href="https://fonts.bunny.net" />
       <link

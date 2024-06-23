@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import SubmitButton from "../SubmitButton";
 import { alert } from "../Alert";
-import { signIn, useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 const LoginForm = () => {
   const [login, { isLoading }] = useLoginMutation();

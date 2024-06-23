@@ -193,7 +193,7 @@ button {
 }
 
 a:focus,
-.btn:focus,
+.btn:focuss
 .button:focus {
     text-decoration: none;
     outline: none;

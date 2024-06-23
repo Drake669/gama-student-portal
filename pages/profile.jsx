@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-"use client";
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
@@ -124,7 +123,6 @@ function Profile() {
             </nav>
             <div className="grid gap-6">
               {t === "security" ? (
-                // <form onSubmit={handleSubmit}>
                 <Card x-chunk="dashboard-04-chunk-1">
                   <CardHeader>
                     <CardTitle>Security</CardTitle>
@@ -177,8 +175,6 @@ function Profile() {
                   </CardFooter>
                 </Card>
               ) : (
-                // </form>
-                // <form onSubmit={handleSubmit}>
                 <Card x-chunk="dashboard-04-chunk-1">
                   <CardHeader>
                     <CardTitle>General</CardTitle>
@@ -246,7 +242,6 @@ function Profile() {
                     </button>
                   </CardFooter>
                 </Card>
-                // </form>
               )}
             </div>
           </div>
