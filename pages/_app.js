@@ -23,11 +23,7 @@ import { Toaster } from "react-hot-toast";
 import { SessionProvider } from "next-auth/react";
 
 function MyApp({ Component, pageProps }) {
-  // const [loading, setLoading] = useState(true);
   useEffect(() => {
-    // setTimeout(() => {
-    //   setLoading(false);
-    // }, 1000);
     AOS.init({
       duration: 1000,
       mirror: true,
