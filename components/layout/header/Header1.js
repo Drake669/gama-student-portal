@@ -5,6 +5,7 @@ import { Menu } from "@headlessui/react";
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { Loader2 } from "lucide-react";
+import ProfileAvatar from "@/components/profile/ProfileAvatar";
 
 export default function Header1({ scroll, handleMobileMenu }) {
   const pathname = usePathname();
@@ -12,21 +13,7 @@ export default function Header1({ scroll, handleMobileMenu }) {
   const { data: session, status } = useSession();
   const renderMenu = () => {
     if (session) {
-      return (
-        <>
-          <li className="mini-cart-icon">
-            <Link href="/shop" className="cart-count">
-              <img src="/assets/img/icons/cart.svg" alt="cart" />
-              <span className="mini-cart-count">0</span>
-            </Link>
-          </li>
-          <div className="header-btn login-btn">
-            <Link href="/profile?t=general" className="btn">
-              {session.user.user.firstName}
-            </Link>
-          </div>
-        </>
-      );
+      return <ProfileAvatar />;
     } else if (status === "loading") {
       return <Loader2 className=" animate-spin" />;
     } else {

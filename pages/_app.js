@@ -1,7 +1,6 @@
-import Preloader from "@/components/elements/Preloader";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Cursor from "@/components/elements/CursorEffect";
 import { Provider } from "react-redux";
 import "slick-carousel/slick/slick.css";
@@ -34,16 +33,12 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Cursor />
-      {/* {!loading ? ( */}
       <Provider store={store}>
         <Toaster />
         <SessionProvider session={pageProps.session}>
           <Component {...pageProps} />
         </SessionProvider>
       </Provider>
-      {/* ) : (
-        <Preloader />
-      )} */}
     </>
   );
 }
